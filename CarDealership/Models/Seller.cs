@@ -14,8 +14,8 @@ namespace CarDealership.Models
         public string State { get; set; }
         public int ZipCode { get; set; }
         public string Email { get; set; }
-        public string TypeOfVehicleBeingSold { get; set; }
+        public string TypeOfVehicle { get; set; }
         public int PriceRangeOffered { get; set; }
-
+        public string TypeOfActivityVehicleBeingUsed { get; set; } 
     }
 }
