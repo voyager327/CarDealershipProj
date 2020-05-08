@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,7 +7,7 @@ namespace CarDealership.Models
 {
     public class Client
     {
-        [Key]
+        [key]
         public int ClientId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -20,6 +19,8 @@ namespace CarDealership.Models
         public int SearchByPriceRangeOption { get; set; } 
         public int SearchByGasMileage { get; set; } 
         public string SearchByCondition { get; set; }
+        public string SearchByVehicleHistory { get; set; }
+
 
     }
 }

@@ -4,14 +4,16 @@ using CarDealership.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace CarDealership.Data.Migrations
+namespace CarDealership.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200508181742_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,6 +48,9 @@ namespace CarDealership.Data.Migrations
 
                     b.Property<int>("SearchByPriceRangeOption")
                         .HasColumnType("int");
+
+                    b.Property<string>("SearchByVehicleHistory")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SearchForVehicleUsageType")
                         .HasColumnType("nvarchar(max)");
@@ -89,7 +94,10 @@ namespace CarDealership.Data.Migrations
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TypeOfVehicleBeingSold")
+                    b.Property<string>("TypeOfActivityVehicleBeingUsed")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypeOfVehicle")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ZipCode")
