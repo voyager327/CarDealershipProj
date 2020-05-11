@@ -11,9 +11,15 @@ namespace CarDealership.Data
 
     {
         public ClientRepository(ApplicationDbContext applicationDbContext) 
-            : base(applicationDbContext)
+            :base(applicationDbContext)
         {
 
         }
+
+        public Client GetClient(int clientId) =>
+            FindByCondition(c => c.ClientId.Equals(clientId)).SingleOrDefault();
+
+        public void CreateClient(Client client) => Create(client);
+                
     }
 }

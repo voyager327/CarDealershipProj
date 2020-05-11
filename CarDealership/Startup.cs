@@ -12,6 +12,7 @@ using CarDealership.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using CarDealership.Contracts;
 
 namespace CarDealership
 {
@@ -29,9 +30,10 @@ namespace CarDealership
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("sqlConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
