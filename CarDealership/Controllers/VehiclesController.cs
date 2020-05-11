@@ -48,10 +48,8 @@ namespace CarDealership.Controllers
 
         // GET: Vehicles/Create
         
-        public IActionResult Create([FromBody]Vehicle vehicle)
+        public IActionResult Create()
         {
-            _context.Vehicles.Add(vehicle);
-            _context.SaveChanges();
             return View();
         }
 
@@ -60,7 +58,7 @@ namespace CarDealership.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VehicleId,Make,Model,Color,Year,Mileage,Price,VehicleCondition,VehicleUsageActivity,VehicleMileage,VehicleHistory")] Vehicle vehicle)
+        public async Task<IActionResult> Create([Bind("VehicleId,VIN,Make,Model,Color,Year,Mileage,Price,VehicleCondition,VehicleUsageActivity,VehicleMileage,VehicleHistory")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {
