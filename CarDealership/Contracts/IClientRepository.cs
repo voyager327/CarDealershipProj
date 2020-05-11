@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarDealership.Contracts
 {
-    interface IClientRepository : IRepositoryBase<Client>
+    public interface IClientRepository : IRepositoryBase<Client>
     {
     }
 }
