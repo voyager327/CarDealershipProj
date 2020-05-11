@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CarDealership.Data;
 using CarDealership.Models;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace CarDealership.Controllers
 {
@@ -22,6 +24,7 @@ namespace CarDealership.Controllers
         // GET: Vehicles
         public async Task<IActionResult> Index()
         {
+           
             return View(await _context.Vehicles.ToListAsync());
         }
 
@@ -44,8 +47,11 @@ namespace CarDealership.Controllers
         }
 
         // GET: Vehicles/Create
-        public IActionResult Create()
+        
+        public IActionResult Create([FromBody]Vehicle vehicle)
         {
+            _context.Vehicles.Add(vehicle);
+            _context.SaveChanges();
             return View();
         }
 

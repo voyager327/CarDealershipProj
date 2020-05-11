@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 namespace CarDealership
 {
      public class RepositoryWrapper : IRepositoryWrapper
+    {
+
+    }
       
    
 }
