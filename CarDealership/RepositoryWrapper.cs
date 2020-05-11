@@ -8,6 +8,12 @@ using System.Threading.Tasks;
 namespace CarDealership
 {
      public class RepositoryWrapper : IRepositoryWrapper
+    {
+        private ApplicationDbContext _context;
+        private IVehicleRepository _vehicle;
+        private IClientRepository 
+
+    }
       
    
 }
