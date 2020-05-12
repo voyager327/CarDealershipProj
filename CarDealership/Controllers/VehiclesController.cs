@@ -69,7 +69,7 @@ namespace CarDealership.Controllers
             return View(vehicle);
         }
 
-        // GET: Vehicles/Edit/5
+        // GET: Vehicles/Edit/s
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -90,7 +90,7 @@ namespace CarDealership.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VehicleId,Make,Model,Color,Year,Mileage,Price,VehicleCondition,VehicleUsageActivity,VehicleMileage,VehicleHistory")] Vehicle vehicle)
+        public async Task<IActionResult> Edit(int id, [Bind("VehicleId,VINMake,Model,Color,Year,Mileage,Price,VehicleCondition,VehicleUsageActivity,VehicleMileage,VehicleHistory")] Vehicle vehicle)
         {
             if (id != vehicle.VehicleId)
             {
