@@ -20,6 +20,8 @@ namespace CarDealership.Controllers
 
         public IActionResult Index()
         {
+            Vehicle vehicle = new Vehicle();
+             vehicle.VinCheck();
             return View();
         }
 
