@@ -13,6 +13,7 @@ namespace CarDealership.Controllers
     public class ClientsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly object _repo;
 
         public ClientsController(ApplicationDbContext context)
         {
@@ -149,5 +150,16 @@ namespace CarDealership.Controllers
         {
             return _context.Clients.Any(e => e.ClientId == id);
         }
+        //[HttpPost]
+        //public IActionResult Post([FromBody] Client client)
+        //{
+        //    var clientFromDb =
+        //        _repo.Client.GetClient(client.ClientId);
+        //    _repo.Client.CreateClient(client);
+        //    _repo.Save();
+
+        //    return Ok(clientFromDb);
+                         
+        //}
     }
 }

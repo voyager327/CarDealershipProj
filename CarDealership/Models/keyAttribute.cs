@@ -2,7 +2,7 @@
 
 namespace CarDealership.Models
 {
-    internal class keyAttribute : Attribute
+    internal class KeyAttribute : Attribute
     {
     }
 }

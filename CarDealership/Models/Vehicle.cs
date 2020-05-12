@@ -7,7 +7,7 @@ namespace CarDealership.Models
 {
     public class Vehicle
     {
-        [key]
+        [Key]
         public int VehicleId { get; set; }
         public string VIN { get; set; }
         public string Make { get; set; }

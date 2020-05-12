@@ -7,7 +7,7 @@ namespace CarDealership.Models
 {
     public class Seller
     {
-        [key]
+        [Key]
         public int SellerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
