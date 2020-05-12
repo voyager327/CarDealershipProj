@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CarDealership.Contracts
 {
-    interface ISellerRepository
+    public interface ISellerRepository
     {
     }
 }

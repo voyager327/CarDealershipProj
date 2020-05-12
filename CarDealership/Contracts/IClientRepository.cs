@@ -8,5 +8,7 @@ namespace CarDealership.Contracts
 {
     public interface IClientRepository : IRepositoryBase<Client>
     {
+        Client GetClient(int clientID);
+        void CreateClient(Client client);
     }
 }
