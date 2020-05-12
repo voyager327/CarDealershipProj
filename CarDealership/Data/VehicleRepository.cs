@@ -14,5 +14,10 @@ namespace CarDealership.Data
         {
 
         }
+
+        public object FindByCondition()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

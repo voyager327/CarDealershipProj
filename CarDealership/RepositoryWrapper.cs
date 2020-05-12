@@ -51,10 +51,6 @@ namespace CarDealership
             _context.SaveChanges();
         }
 
-
-
-
     }
-       
-    
+
 }
