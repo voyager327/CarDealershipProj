@@ -97,6 +97,7 @@ namespace CarDealership.Migrations
                 {
                     VehicleId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    VIN = table.Column<string>(nullable: true),
                     Make = table.Column<string>(nullable: true),
                     Model = table.Column<string>(nullable: true),
                     Color = table.Column<string>(nullable: true),

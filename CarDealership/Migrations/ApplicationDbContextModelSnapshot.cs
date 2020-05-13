@@ -128,6 +128,9 @@ namespace CarDealership.Migrations
                     b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("VIN")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("VehicleCondition")
                         .HasColumnType("nvarchar(max)");
 
