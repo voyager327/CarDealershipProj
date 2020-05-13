@@ -37,11 +37,11 @@ namespace CarDealership.Models
             {
                 requestMessage.Headers.Authorization =
                     new AuthenticationHeaderValue( APIKeys.VinDecoderAuth);
-<<<<<<< HEAD
+
                 //requestMessage.Headers.Authorization 
-=======
+
                 //requestMessage.Headers.Authorization
->>>>>>> 7479d975b7501dc0782a88f5b395bb6e0f09dd05
+
                 //    new AuthenticationHeaderValue("partner-token", APIKeys.VinDecoderPartnerToken);
                 await client.SendAsync(requestMessage);
                 jsonResult = await requestMessage.Content.ReadAsStringAsync();
