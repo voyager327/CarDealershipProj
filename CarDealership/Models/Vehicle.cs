@@ -25,12 +25,7 @@ namespace CarDealership.Models
         public string VehicleUsageActivity { get; set; } //For work, business, pleasure, or a combination? These options could be possibly be broken down into different activities, if we need to.
         public int VehicleMileage { get; set; } 
         public string VehicleHistory { get; set; } //Repairs, Modifications, Accidents, Number of times it was sold,
-        private readonly ApplicationDbContext _context;
-
-        public Vehicle(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+        
         public async Task VinCheck()
         {
 
@@ -61,6 +56,6 @@ namespace CarDealership.Models
 
         }
     }
-}
+
    
    
