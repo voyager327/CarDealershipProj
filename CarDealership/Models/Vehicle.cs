@@ -43,16 +43,13 @@ namespace CarDealership.Models
             {
                 requestMessage.Headers.Authorization =
                     new AuthenticationHeaderValue( APIKeys.VinDecoderAuth);
-<<<<<<< HEAD
-                //requestMessage.Headers.Authorization 
-                //requestMessage.Headers.Authorization
-=======
 
                 //requestMessage.Headers.Authorization 
+          
 
-                //requestMessage.Headers.Authorization
+                //requestMessage.Headers.Authorization 
 
->>>>>>> 3381ec0b20c37235413a91fb1ad4a09cc9e2b783
+      
                 //    new AuthenticationHeaderValue("partner-token", APIKeys.VinDecoderPartnerToken);
                 await client.SendAsync(requestMessage);
                 jsonResult = await requestMessage.Content.ReadAsStringAsync();
@@ -60,25 +57,7 @@ namespace CarDealership.Models
             VinDecode vinDecode = JsonConvert.DeserializeObject<VinDecode>(jsonResult);
 
         }
-        public async Task VehicleSearch(string value)
-        {
-            Vehicle[] vehiclesArray;
-            string vmake;
-           using (_context)
-            {
-                IQueryable<Vehicle> vehicle = from p in _context.Vehicles
-                                               orderby p.Veh descending
-                                               select p;
-                vehiclesArray = vehicle.ToArray();
-            }
-           if(value == "make")
-            {
-                int i = 0
-                for (i = 0; i<vehiclesArray.Length; i++)
-                {
-                if(vmake == vehiclesArray)
-                }
-            }
+       
 
         }
     }
