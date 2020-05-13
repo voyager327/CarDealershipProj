@@ -18,7 +18,7 @@ namespace CarDealership.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index() 
         {
             Vehicle vehicle = new Vehicle();
              vehicle.VinCheck();
