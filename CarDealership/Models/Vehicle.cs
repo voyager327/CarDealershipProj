@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Diagnostics;
+﻿using CarDealership.Data;
+using Microsoft.AspNetCore.Mvc.Diagnostics;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,12 @@ namespace CarDealership.Models
         public string VehicleUsageActivity { get; set; } //For work, business, pleasure, or a combination? These options could be possibly be broken down into different activities, if we need to.
         public int VehicleMileage { get; set; } 
         public string VehicleHistory { get; set; } //Repairs, Modifications, Accidents, Number of times it was sold,
+        private readonly ApplicationDbContext _context;
 
+        public Vehicle(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         public async Task VinCheck()
         {
 
@@ -37,11 +43,8 @@ namespace CarDealership.Models
             {
                 requestMessage.Headers.Authorization =
                     new AuthenticationHeaderValue( APIKeys.VinDecoderAuth);
-<<<<<<< HEAD
                 //requestMessage.Headers.Authorization 
-=======
                 //requestMessage.Headers.Authorization
->>>>>>> 7479d975b7501dc0782a88f5b395bb6e0f09dd05
                 //    new AuthenticationHeaderValue("partner-token", APIKeys.VinDecoderPartnerToken);
                 await client.SendAsync(requestMessage);
                 jsonResult = await requestMessage.Content.ReadAsStringAsync();
@@ -51,7 +54,24 @@ namespace CarDealership.Models
         }
         public async Task VehicleSearch(string value)
         {
-            
+            Vehicle[] vehiclesArray;
+            string vmake;
+           using (_context)
+            {
+                IQueryable<Vehicle> vehicle = from p in _context.Vehicles
+                                               orderby p.Veh descending
+                                               select p;
+                vehiclesArray = vehicle.ToArray();
+            }
+           if(value == "make")
+            {
+                int i = 0
+                for (i = 0; i<vehiclesArray.Length; i++)
+                {
+                if(vmake == vehiclesArray)
+                }
+            }
+
         }
     }
 }
