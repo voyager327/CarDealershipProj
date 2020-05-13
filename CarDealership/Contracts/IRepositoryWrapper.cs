@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace CarDealership.Contracts
 {
-     public interface IRepositoryWrapper
+
+    public interface IRepositoryWrapper
+     
     {
         IVehicleRepository Vehicle { get; }
         IClientRepository Client { get; }
