@@ -50,18 +50,15 @@ function firstQuestion(answers){
 
 }
 
-function secondQuestion
-}
-
 function secondQuestion(answers)
 let questionTwo = promptFor("Would you like more power, or more versatility?" + "\n" + "Please enter 1 for more power, or 2 for more versatility." , chars);
 let secondQuestionAnswer;
 switch(questionTwo){
     case '1':
-        secondQuestionAnswer = seventhQuestion(answers)
+        secondQuestionAnswer = seventhQuestion(answers); // more power
     break;
     case '2':
-        secondQuestionAnswer = eighthQuestion(answers)
+        secondQuestionAnswer = eighthQuestion(answers); // more versatility
     break;
     default:
         secondQuestion(answers); // re ask the question 
@@ -69,9 +66,38 @@ switch(questionTwo){
 }
 
 function thirdQuestion(answers)
+let questionThree = promptFor("Would you like something more laid back, or would you like something more sporty?" + "\n" + "Please enter 1 for more laid back, or 2 for something more sporty", chars);
+let thirdQuestionAnswer;
+switch(questionThree){
+    case '1':
+        thirdQuestionAnswer = ninthQuestion(answers);
+    break;
+    case '2':
+        thirdQuestionAnswer = tenthQuestion(answers);
+    break;
+    default:
+        thirdQuestion(answers); // re ask the question
+    break;
 
+}
 
-
+function seventhQuestion(answers)
+let questionSeven = promptFor("Would you like a Chevy, do you prefer Ford, or would you like something else?" + "\n" + "Please enter 1 for Chevy, 2 for Ford, or 3 for something different." , chars);
+let seventhQuestionAnswer;
+switch(questionSeven){
+    case '1':
+        seventhQuestionAnswer = promptFor("We think you would like the Chevy Colorado, or the Chevy Sliverado based on your answers.");
+    break;
+    case '2':
+        seventhQuestionAnswer = promptFor("We think you would like something along the lines of a Ford F150 and up based on your answers.");
+    break;
+    case '3':
+        seventhQuestionAnswer = promptFor("We think you should check out these other manufacturers, Toyota, Nissian, GMC, or Dodge Ram");
+    break;
+    default:
+        seventhQuestion(answers); // re ask the question
+    break;
+}
 
 
 
