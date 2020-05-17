@@ -25,42 +25,34 @@ namespace CarDealership.Models
         public string VehicleUsageActivity { get; set; } //For work, business, pleasure, or a combination? These options could be possibly be broken down into different activities, if we need to.
         public int VehicleMileage { get; set; } 
         public string VehicleHistory { get; set; } //Repairs, Modifications, Accidents, Number of times it was sold,
-        private readonly ApplicationDbContext _context;
-
-        public Vehicle(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+      
         public async Task VinCheck()
         {
 
 
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            string jsonResult = "";
+            string jsonResult;
             using (var requestMessage =
             new HttpRequestMessage(HttpMethod.Get, "http://api.carmd.com/v3.0/decode?vin=1GNALDEK9FZ108495"))
             {
-                requestMessage.Headers.Authorization =
-                    new AuthenticationHeaderValue( APIKeys.VinDecoderAuth);
+                requestMessage.Headers.Authorization = new AuthenticationHeaderValue("authorization", APIKeys.VinDecoderAuth);
 
-                //requestMessage.Headers.Authorization 
-          
-
-                //requestMessage.Headers.Authorization 
-
-      
-                //    new AuthenticationHeaderValue("partner-token", APIKeys.VinDecoderPartnerToken);
+                requestMessage.Headers.Add("partner-token", APIKeys.VinDecoderPartnerToken);
+               
                 await client.SendAsync(requestMessage);
                 jsonResult = await requestMessage.Content.ReadAsStringAsync();
             }
             VinDecode vinDecode = JsonConvert.DeserializeObject<VinDecode>(jsonResult);
 
         }
-       
+       public async Task VehicleSearch()
+        {
+            
+        }
 
         }
     }
-}
+
    
    
