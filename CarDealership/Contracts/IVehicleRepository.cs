@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 namespace CarDealership.Contracts
 {
 
-  
-
-
     public interface IVehicleRepository : IRepositoryBase<Vehicle>
-
 
     {
         object FindByCondition();

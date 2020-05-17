@@ -4,14 +4,16 @@ using CarDealership.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CarDealership.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200515163951_AddedGlobalRouting")]
+    partial class AddedGlobalRouting
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,9 +90,6 @@ namespace CarDealership.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IdentityUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
@@ -110,8 +109,6 @@ namespace CarDealership.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("SellerId");
-
-                    b.HasIndex("IdentityUserId");
 
                     b.ToTable("Sellers");
                 });
@@ -190,8 +187,8 @@ namespace CarDealership.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9ba9a874-5710-4b26-96eb-968345145d02",
-                            ConcurrencyStamp = "bc96f630-ce92-4606-9088-67dd337e7d2a",
+                            Id = "2113f984-10fc-432e-a2de-a5474ec2b638",
+                            ConcurrencyStamp = "91b9880f-ecd8-4389-9ee1-40e6156e3f9c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -371,13 +368,6 @@ namespace CarDealership.Migrations
                 });
 
             modelBuilder.Entity("CarDealership.Models.Client", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
-                        .WithMany()
-                        .HasForeignKey("IdentityUserId");
-                });
-
-            modelBuilder.Entity("CarDealership.Models.Seller", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
                         .WithMany()

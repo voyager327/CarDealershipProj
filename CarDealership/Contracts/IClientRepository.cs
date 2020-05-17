@@ -10,9 +10,6 @@ namespace CarDealership.Contracts
     {
 
         Client GetClient(int clientId);
-
-       
-
         void CreateClient(Client client);
     }
 }

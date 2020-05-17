@@ -14,7 +14,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using CarDealership.SignalRChat.Hubs;
 using CarDealership.Contracts;
-
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+using CarDealership.ActionFilters;
 
 namespace CarDealership
 {
@@ -34,15 +36,33 @@ namespace CarDealership
  
              Configuration.GetConnectionString("DefaultConnection")));
 
-
-                
+            //services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+            services.AddScoped<ClaimsPrincipal>(s => s.GetService<IHttpContextAccessor>().HttpContext.User);
+            services.AddControllers(config =>
+            {
+                config.Filters.Add(typeof(GlobalRouting));
+
+            });
+        
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddSignalR();
+        }
+
+        private void AddDefaultUI()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AddDefaultTokenProviders()
+        {
+            throw new NotImplementedException();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

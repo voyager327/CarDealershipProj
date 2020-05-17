@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Security.Policy;
 using System.Threading.Tasks;
 
 namespace CarDealership.Models
@@ -17,7 +20,11 @@ namespace CarDealership.Models
         public int ZipCode { get; set; }
         public string Email { get; set; }
         public string TypeOfVehicle { get; set; }
-        public int PriceRangeOffered { get; set; }
+        public double PriceRangeOffered { get; set; }
         public string TypeOfActivityVehicleBeingUsed { get; set; } 
+
+        [ForeignKey("IdentityUser")]
+        public string IdentityUserId { get; set; }
+        public IdentityUser IdentityUser { get; set; }
     }
 }

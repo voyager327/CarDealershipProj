@@ -9,11 +9,32 @@ using CarDealership.Data;
 using CarDealership.Models;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using CarDealership.Contracts;
 
 namespace CarDealership.Controllers
 {
+    //[Route("api/[controller")]
+    //[ApiController]
     public class VehiclesController : Controller
     {
+        //private IRepositoryWrapper _repo;
+        //public VehiclesController(IRepositoryWrapper repo)
+        //{
+        //    _repo = repo;
+        //}
+        //[HttpPost]
+        //public IActionResult Post([FromBody] Vehicle vehicle)
+        //{
+        //    _repo.Vehicle.Create(vehicle);
+        //    var vehicles = _repo.Vehicle.FindByCondition(c => c.Color == "");
+        //    _repo.Vehicle.Update(vehicle);
+        //    _repo.Vehicle.Delete(vehicle);
+        //    _repo.Save();
+
+        //    return Ok(vehicles);
+
+        //}
+
         private readonly ApplicationDbContext _context;
 
         public VehiclesController(ApplicationDbContext context)
@@ -25,7 +46,7 @@ namespace CarDealership.Controllers
         public async Task<IActionResult> Index()
         {
            
-            return View(await _context.Vehicles.ToListAsync());
+            return Ok(await _context.Vehicles.ToListAsync());
         }
 
         // GET: Vehicles/Details/5
@@ -43,14 +64,14 @@ namespace CarDealership.Controllers
                 return NotFound();
             }
 
-            return View(vehicle);
+            return Ok(vehicle);
         }
 
         // GET: Vehicles/Create
         
         public IActionResult Create()
         {
-            return View();
+            return Ok ();
         }
 
         // POST: Vehicles/Create
@@ -66,7 +87,7 @@ namespace CarDealership.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(vehicle);
+            return Ok(vehicle);
         }
 
         // GET: Vehicles/Edit/s
@@ -82,7 +103,7 @@ namespace CarDealership.Controllers
             {
                 return NotFound();
             }
-            return View(vehicle);
+            return Ok(vehicle);
         }
 
         // POST: Vehicles/Edit/5
@@ -117,7 +138,7 @@ namespace CarDealership.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(vehicle);
+            return Ok(vehicle);
         }
 
         // GET: Vehicles/Delete/5
@@ -135,7 +156,7 @@ namespace CarDealership.Controllers
                 return NotFound();
             }
 
-            return View(vehicle);
+            return Ok(vehicle);
         }
 
         // POST: Vehicles/Delete/5

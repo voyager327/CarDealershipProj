@@ -9,5 +9,7 @@ namespace CarDealership.Contracts
     public interface ISellerRepository : IRepositoryBase<Seller>
 
     {
+        Seller GetSeller(int sellerId);
+        void CreateSeller(Seller seller);
     }
 }

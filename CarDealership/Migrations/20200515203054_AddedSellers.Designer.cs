@@ -4,14 +4,16 @@ using CarDealership.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CarDealership.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200515203054_AddedSellers")]
+    partial class AddedSellers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,8 +192,8 @@ namespace CarDealership.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9ba9a874-5710-4b26-96eb-968345145d02",
-                            ConcurrencyStamp = "bc96f630-ce92-4606-9088-67dd337e7d2a",
+                            Id = "350a634b-51c2-4121-bf2a-c04da50650c4",
+                            ConcurrencyStamp = "a4d54f9f-cfee-46a7-bb36-cf660e54e6e8",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

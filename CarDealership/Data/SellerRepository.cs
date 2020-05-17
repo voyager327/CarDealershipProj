@@ -14,9 +14,20 @@ namespace CarDealership.Data
         {
 
         }
-                 
 
-        
+        public void CreateSeller(Seller seller)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Seller GetSeller(int sellerId)
+        {
+            throw new NotImplementedException();
+        }
+        public Seller GetClient(int sellerId) =>
+            FindByCondition(c => c.SellerId.Equals(sellerId)).SingleOrDefault();
+
+        public void CreateClient(Seller seller) => Create(seller );
     }  
         
     
