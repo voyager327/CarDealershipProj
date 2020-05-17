@@ -16,7 +16,7 @@ namespace CarDealership.Models
         public string State { get; set; }
         public int ZipCode { get; set; }
         public string SearchForVehicleUsageType { get; set; } //Is it for work, business, pleasure, hobby, or a combination? 
-        public int SearchByPriceRangeOption { get; set; } 
+        public double SearchByPriceRangeOption { get; set; } 
         public int SearchByGasMileage { get; set; } 
         public string SearchByCondition { get; set; }
         public string SearchByVehicleHistory { get; set; }
